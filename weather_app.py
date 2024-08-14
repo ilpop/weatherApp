@@ -1,11 +1,14 @@
-# weather_app.py
-
+from dotenv import load_dotenv
+import os
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 import requests
 
-API_KEY = '0a2fc1de174d26bcfe7d5ba3682d04d9'  # Replace with your OpenWeatherMap API key
+
+load_dotenv()
+
+API_KEY = os.getenv('OPENWEATHER_API_KEY') 
 BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
 
 def get_weather(city_name):  # Now outside the class
