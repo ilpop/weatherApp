@@ -1,8 +1,8 @@
+# test_weather.py
+
 import pytest
 import requests
-from weather_app import get_weather
-API_KEY = '0a2fc1de174d26bcfe7d5ba3682d04d9'
-BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
+from weather_app import get_weather  # Now this should be importable
 
 def test_get_weather_success(monkeypatch):
     def mock_get(url):
@@ -42,3 +42,4 @@ def test_get_weather_failure(monkeypatch):
     monkeypatch.setattr(requests, 'get', mock_get)
     result = get_weather('InvalidCity')
     assert result == "City InvalidCity not found."
+
